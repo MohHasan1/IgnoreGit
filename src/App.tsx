@@ -17,6 +17,23 @@ function App() {
     }
   }
 
+  const extractGitIgnoreContent = () => {
+    const match = data!.match(/```(.*?)```/s);
+    return match ? match[1].trim() : data;
+  };
+
+  const handleCopy = async () => {
+    const gitIgnoreContent = extractGitIgnoreContent();
+    if (gitIgnoreContent) {
+      try {
+        await navigator.clipboard.writeText(gitIgnoreContent);
+        alert("Copied to clipboard!");
+      } catch (err) {
+        console.error("Failed to copy: ", err);
+      }
+    }
+  };
+
   return (
     <>
       <header className="m-4">
@@ -45,6 +62,9 @@ function App() {
               <h2 className="text-center text-green-400">
                 Generated .gitignore:
               </h2>
+              <Button onClick={handleCopy} className="mb-4">
+                Copy to Clipboard
+              </Button>
               <pre className="whitespace-pre-wrap overflow-auto">{data}</pre>
             </>
           )}
