@@ -15,7 +15,7 @@
 This application utilizes React for the frontend, complemented by Tailwind CSS and shadcn/ui for design. The core functionality leverages LangChain to interact with GROQ, which hosts the Llama 8B model, enabling the generation of `.gitignore` files based on user input.
 
 ## Live Demo
-Visit the live version of IgnoreGit at [your-website-link.com](https://your-website-link.com).
+Visit the live version of IgnoreGit at [your-website-link.com](https://ignore-git.netlify.app/).
 
 ## Installation
 To run this project locally, clone the repository and install the dependencies:
